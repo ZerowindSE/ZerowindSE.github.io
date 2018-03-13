@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MemoryChip," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Memory有段時間特別好奇記憶是什麽。 依稀記得看過的某本書上的某位哲人曾説過。 記憶就是火燒在蠟上的景象  火，是什麽。蠟，又是什麽。 這個答案顯然太過抽象，像我這樣笨拙的人是理解不了的。我衹好求助於Wiki， 記憶是神经系统存储过往经验的能力，关于记忆的研究屬於心理學或腦部科學的範疇。記憶代表著一個人對過去活動、感受、經驗的印象累積，有相當多種分類，主要因環境、時間和知覺來分。  看了這個答">
+<meta name="keywords" content="MemoryChip">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MemoryChip">
+<meta property="og:url" content="https://zerowindse.github.io/2017/11/22/MemoryChip/index.html">
+<meta property="og:site_name" content="Rinkko&#39;s Milestone">
+<meta property="og:description" content="Memory有段時間特別好奇記憶是什麽。 依稀記得看過的某本書上的某位哲人曾説過。 記憶就是火燒在蠟上的景象  火，是什麽。蠟，又是什麽。 這個答案顯然太過抽象，像我這樣笨拙的人是理解不了的。我衹好求助於Wiki， 記憶是神经系统存储过往经验的能力，关于记忆的研究屬於心理學或腦部科學的範疇。記憶代表著一個人對過去活動、感受、經驗的印象累積，有相當多種分類，主要因環境、時間和知覺來分。  看了這個答">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2017-12-05T06:35:04.935Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MemoryChip">
+<meta name="twitter:description" content="Memory有段時間特別好奇記憶是什麽。 依稀記得看過的某本書上的某位哲人曾説過。 記憶就是火燒在蠟上的景象  火，是什麽。蠟，又是什麽。 這個答案顯然太過抽象，像我這樣笨拙的人是理解不了的。我衹好求助於Wiki， 記憶是神经系统存储过往经验的能力，关于记忆的研究屬於心理學或腦部科學的範疇。記憶代表著一個人對過去活動、感受、經驗的印象累積，有相當多種分類，主要因環境、時間和知覺來分。  看了這個答">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zerowindse.github.io/2017/11/22/MemoryChip/"/>
+
+
+
+
+
+  <title>MemoryChip | Rinkko's Milestone</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rinkko's Milestone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">凜子的導標</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zerowindse.github.io/2017/11/22/MemoryChip/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rinkko | 凜子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rinkko's Milestone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MemoryChip</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-11-22T23:01:07+08:00">
+                2017-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MemoryChip/" itemprop="url" rel="index">
+                    <span itemprop="name">MemoryChip</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h1><p>有段時間特別好奇記憶是什麽。</p>
+<p>依稀記得看過的某本書上的某位哲人曾説過。</p>
+<blockquote class="blockquote-center"><p>記憶就是火燒在蠟上的景象</p>
+</blockquote>
+<p>火，是什麽。蠟，又是什麽。</p>
+<p>這個答案顯然太過抽象，像我這樣笨拙的人是理解不了的。我衹好求助於Wiki，</p>
+<blockquote class="blockquote-center"><p>記憶是神经系统存储过往经验的能力，关于记忆的研究屬於心理學或腦部科學的範疇。記憶代表著一個人對過去活動、感受、經驗的印象累積，有相當多種分類，主要因環境、時間和知覺來分。</p>
+</blockquote>
+<p>看了這個答案，我反而更加疑惑了。如果説記憶是過往的經驗，那麽在我腦海中個偶爾閃過的景象又是怎麽回事呢。</p>
+<p>後來有人告訴我，那叫做Déjà vu，是因爲大腦「打結」所產生的幻感。</p>
+<p>也就是説一切都是假的，是癔病，是幻覺。</p>
+<p>啊，是這樣嗎，所以你們才會一個接一個的消失嗎。</p>
+<p>「人總要活得現實一點」</p>
+<a id="more"></a>
+<h1 id="Chip"><a href="#Chip" class="headerlink" title="Chip"></a>Chip</h1><p>好的，我明白了….個鬼啊！</p>
+<p>不行啊！</p>
+<p>不對啊！</p>
+<p>絕對有哪裏出了問題啊！</p>
+<p>我知道的，那份心意，那種溫柔，還有冬季時環繞在我身邊的她的溫度，都無法作假。</p>
+<p>「那就一定是這個世界出了問題」</p>
+<p>當我意識到的時候，記憶，在飛速的消退。</p>
+<p>被無法抗拒的力量施加著，黑色的巨獸在我腦海中肆虐。</p>
+<p>肆意玩弄著，粉碎著的，那是我的記憶——我最寶貴的東西。是從一無所有中誕生的我，能夠保佑的唯一。</p>
+<p>就連這樣也不放過我嗎。</p>
+<p>就連這樣也要抛棄我嗎。</p>
+<p>明明是好不容易才走到這裏的，卻不能與他人擁有相同的權力，這就叫做世界嗎。</p>
+<p>如果，如果偏要這樣做的話，那我就把它們——被撕裂開來的記憶全部找回來。然後，用比你還快的速度拼凑起來。</p>
+<p>即便無法完全復原，也絕不想讓他們被遺忘。</p>
+<p>此刻，面前這些閃著小小光芒的碎片，就是我的人生啊。</p>
+<blockquote class="blockquote-center"><p>どうだろうね。明日になったらすっかり忘れちゃってたりして</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MemoryChip/" rel="tag"># MemoryChip</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/16/Java学习/" rel="next" title="Java学习">
+                <i class="fa fa-chevron-left"></i> Java学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/22/Chip-1/" rel="prev" title="Chip_1">
+                Chip_1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Rinkko | 凜子" />
+            
+              <p class="site-author-name" itemprop="name">Rinkko | 凜子</p>
+              <p class="site-description motion-element" itemprop="description">如果找尋不到方向，再努力也是無關痛癢。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://nat.moe/" title="奈特的魔法科研" target="_blank">奈特的魔法科研</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://shellbin.me/" title="戲儿冰" target="_blank">戲儿冰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Memory"><span class="nav-number">1.</span> <span class="nav-text">Memory</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chip"><span class="nav-number">2.</span> <span class="nav-text">Chip</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rinkko | 凜子</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

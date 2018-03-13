@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="教程,工作," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前期准备最近需要做一个ACGN-Stock原型站，于是在github上翻了翻，找到了PTT做的ACGN-Stock源码，地址如下。 https://github.com/mrbigmouth/acgn-stock 然后我们需要一台装有CentOS 7的主机。 一个冷静的头脑。 和一杯热腾腾的咖啡——毕竟安静的深夜更适合写代码不是吗？ 当然，还有垫肚子用的零食QAQQQQ不准备的话就会像我现在一样饿">
+<meta name="keywords" content="教程,工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="创建你自己的ACGN-Stock Game">
+<meta property="og:url" content="https://zerowindse.github.io/2017/11/07/2017-11-07/index.html">
+<meta property="og:site_name" content="Rinkko&#39;s Milestone">
+<meta property="og:description" content="前期准备最近需要做一个ACGN-Stock原型站，于是在github上翻了翻，找到了PTT做的ACGN-Stock源码，地址如下。 https://github.com/mrbigmouth/acgn-stock 然后我们需要一台装有CentOS 7的主机。 一个冷静的头脑。 和一杯热腾腾的咖啡——毕竟安静的深夜更适合写代码不是吗？ 当然，还有垫肚子用的零食QAQQQQ不准备的话就会像我现在一样饿">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2017-11-15T11:08:41.129Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="创建你自己的ACGN-Stock Game">
+<meta name="twitter:description" content="前期准备最近需要做一个ACGN-Stock原型站，于是在github上翻了翻，找到了PTT做的ACGN-Stock源码，地址如下。 https://github.com/mrbigmouth/acgn-stock 然后我们需要一台装有CentOS 7的主机。 一个冷静的头脑。 和一杯热腾腾的咖啡——毕竟安静的深夜更适合写代码不是吗？ 当然，还有垫肚子用的零食QAQQQQ不准备的话就会像我现在一样饿">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zerowindse.github.io/2017/11/07/2017-11-07/"/>
+
+
+
+
+
+  <title>创建你自己的ACGN-Stock Game | Rinkko's Milestone</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rinkko's Milestone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">凜子的導標</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zerowindse.github.io/2017/11/07/2017-11-07/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rinkko | 凜子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rinkko's Milestone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">创建你自己的ACGN-Stock Game</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-11-07T00:06:11+08:00">
+                2017-11-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/正经文章/" itemprop="url" rel="index">
+                    <span itemprop="name">正经文章</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>最近需要做一个ACGN-Stock原型站，于是在github上翻了翻，找到了PTT做的ACGN-Stock源码，地址如下。</p>
+<pre><code>https://github.com/mrbigmouth/acgn-stock
+</code></pre><p>然后我们需要一台装有CentOS 7的主机。</p>
+<p>一个冷静的头脑。</p>
+<p>和一杯热腾腾的咖啡——毕竟安静的深夜更适合写代码不是吗？</p>
+<p>当然，还有垫肚子用的零食QAQQQQ不准备的话就会像我现在一样饿哭!</p>
+<a id="more"></a>
+<h1 id="开始折腾NodeJS"><a href="#开始折腾NodeJS" class="headerlink" title="开始折腾NodeJS"></a>开始折腾NodeJS</h1><p>你问我为什么要装NodeJS？</p>
+<p>那是因为NodeJS是部署Meteor的前置啊！</p>
+<p>那我们为什么要装Meteor？</p>
+<p>我也不知道，但ACGN-Stock上说要装了，装就是了！</p>
+<h2 id="编译安装NodeJS"><a href="#编译安装NodeJS" class="headerlink" title="编译安装NodeJS"></a>编译安装NodeJS</h2><p>从NodeJS的官网下载最新的二进制源码安装包，千万记得下载之前找个顺眼的目录，wget默认情况下是会下载到当前目录的。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://nodejs.org/dist/v8.9.0/node-v8.9.0.tar.gz</div></pre></td></tr></table></figure></p>
+<p>如果在安装CentOS 7时选择了最小安装，bash会提示没有找到wget命令，使用以下命令来安装wget。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install wget</div></pre></td></tr></table></figure></p>
+<p>当下载完之后，我们可以通过tar命令来解压源码。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf node-v8.9.0.tar.gz</div></pre></td></tr></table></figure></p>
+<p>由于NodeJS下载速度比较慢，而且之后还要戒烟，这时候我们可以新开一个session来安装编译所必要的环境。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install gcc gcc-c++</div></pre></td></tr></table></figure></p>
+<p>等到node解压完成，我们就可以开始安装啦。</p>
+<p>进入到解压目录，然后键入以下命令,其中–prefix所指定的是NodeJS的安装目录。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure --prefix=/usr/local/node</div></pre></td></tr></table></figure></p>
+<p>然后make就好了…理论上是这样的QAQ但我的CentOS并不这么听话，GCC版本过低，所以我理智的放弃了看上去高端大气的编译安装。</p>
+<hr>
+<p>题外话：就在EPEL方式安装完后的五分钟，我就找到了CentOS的GCC版本超低的原因。</p>
+<p>我…我忘记update安装源了…</p>
+<p>心里难受说不出话。</p>
+<hr>
+<h2 id="通过EPEL库安装NodeJS"><a href="#通过EPEL库安装NodeJS" class="headerlink" title="通过EPEL库安装NodeJS"></a>通过EPEL库安装NodeJS</h2><p>首先依然是先加载EPEL库。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install epel-release</div></pre></td></tr></table></figure></p>
+<p>然后依次执行下列命令来安装NodeJS和rpm软件包管理器。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum -y install nodejs</div><div class="line">yum -y install rpm</div></pre></td></tr></table></figure></p>
+<p>然后检测一下是否安装成功。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nodejs -v</div><div class="line">rpm --version</div></pre></td></tr></table></figure></p>
+<p>搞定了，简单快捷，比编译安装不知道高到哪里去了!!!!!</p>
+<h1 id="开始折腾Meteor"><a href="#开始折腾Meteor" class="headerlink" title="开始折腾Meteor"></a>开始折腾Meteor</h1><p>官网给出了明确的安装方法。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl https://install.meteor.com/ | sh</div></pre></td></tr></table></figure></p>
+<p>Meteor的下载速度极慢，我又懒得用代理或者镜像源，所以喝口咖啡吃点零食慢慢等就好。</p>
+<p>然后我就后悔了…一个小时才下完QAQ</p>
+<h1 id="将github项目clone到本地"><a href="#将github项目clone到本地" class="headerlink" title="将github项目clone到本地"></a>将github项目clone到本地</h1><p>这个也很简单，随随便便就搞定。</p>
+<p>如果你还没有安装git，请先安装git或者褪裙。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install git</div></pre></td></tr></table></figure></p>
+<p>然后将项目clone到本地。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/mrbigmouth/acgn-stock.git</div></pre></td></tr></table></figure></p>
+<p>再进入项目目录，根据ACGN-Stock的说明文档的进行操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">meteor npm install --allow-superuser</div><div class="line">meteor --allow-superuser</div></pre></td></tr></table></figure>
+<p>执行完毕后有以下回显。</p>
+<pre><code>=&gt; Started proxy.                             
+=&gt; Started MongoDB.                           
+=&gt; Started your app.                          
+
+=&gt; App running at: http://localhost:3000/
+</code></pre><p>理论上，到这里就结束了。</p>
+<h1 id="故障及排除"><a href="#故障及排除" class="headerlink" title="故障及排除"></a>故障及排除</h1><h2 id="在这之前"><a href="#在这之前" class="headerlink" title="在这之前"></a>在这之前</h2><p>如果你还没添加防火墙规则和关闭SELinux，请参照从零开始配置Nginx的那篇文章。</p>
+<h2 id="故障判断"><a href="#故障判断" class="headerlink" title="故障判断"></a>故障判断</h2><p>俗话说得好，不是项目没有Bug，而是你没找到Bug(推锅。</p>
+<p>访问 <a href="http://localhost:3000/" target="_blank" rel="external">http://localhost:3000/</a> 后我们只能看到一片空白的界面，那么这到底是出Bug了还是Feature呢？</p>
+<p>为了找到答案，我们换个目录新建一个MeteorApp。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">meteor create text --allow-superuser   创建名为text的App</div><div class="line">cd text</div><div class="line">meteor run --allow-superuser</div></pre></td></tr></table></figure></p>
+<p>然后访问3000端口，大获成功。</p>
+<p>好吧…我承认这应该是我的锅了QAQ</p>
+<p>##故障排除<br>空白页面并不一定是什么都没有，首先我们来查看这个页面的源代码。</p>
+<p>emmm好，我什么都看不懂，不过没关系，起码我们确定这个页面并不是真正的“空白”</p>
+<p>有点累..下次再写(逃)</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/教程/" rel="tag"># 教程</a>
+          
+            <a href="/tags/工作/" rel="tag"># 工作</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/31/2017-10-31/" rel="next" title="从零开始搭建Nextcloud#失败">
+                <i class="fa fa-chevron-left"></i> 从零开始搭建Nextcloud#失败
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/08/2017-11-08/" rel="prev" title="忙">
+                忙 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Rinkko | 凜子" />
+            
+              <p class="site-author-name" itemprop="name">Rinkko | 凜子</p>
+              <p class="site-description motion-element" itemprop="description">如果找尋不到方向，再努力也是無關痛癢。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://nat.moe/" title="奈特的魔法科研" target="_blank">奈特的魔法科研</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://shellbin.me/" title="戲儿冰" target="_blank">戲儿冰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前期准备"><span class="nav-number">1.</span> <span class="nav-text">前期准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始折腾NodeJS"><span class="nav-number">2.</span> <span class="nav-text">开始折腾NodeJS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译安装NodeJS"><span class="nav-number">2.1.</span> <span class="nav-text">编译安装NodeJS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过EPEL库安装NodeJS"><span class="nav-number">2.2.</span> <span class="nav-text">通过EPEL库安装NodeJS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始折腾Meteor"><span class="nav-number">3.</span> <span class="nav-text">开始折腾Meteor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将github项目clone到本地"><span class="nav-number">4.</span> <span class="nav-text">将github项目clone到本地</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#故障及排除"><span class="nav-number">5.</span> <span class="nav-text">故障及排除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在这之前"><span class="nav-number">5.1.</span> <span class="nav-text">在这之前</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#故障判断"><span class="nav-number">5.2.</span> <span class="nav-text">故障判断</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rinkko | 凜子</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

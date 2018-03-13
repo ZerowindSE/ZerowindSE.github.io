@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,教程," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="安装Nginx和php7环境CentOS 7默认是关闭网络的，首先开启网络。1cd /etc/sysconfig/network-scripts/ 然后找到网卡命名的那个文件，做以下修改。12BOOTPROTO=&quot;DHCP&quot;ONBOOT=yes 然后用:wq保存退出，重启网络。1service network restart">
+<meta name="keywords" content="Linux,教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始搭建Nextcloud#失败">
+<meta property="og:url" content="https://zerowindse.github.io/2017/10/31/2017-10-31/index.html">
+<meta property="og:site_name" content="Rinkko&#39;s Milestone">
+<meta property="og:description" content="安装Nginx和php7环境CentOS 7默认是关闭网络的，首先开启网络。1cd /etc/sysconfig/network-scripts/ 然后找到网卡命名的那个文件，做以下修改。12BOOTPROTO=&quot;DHCP&quot;ONBOOT=yes 然后用:wq保存退出，重启网络。1service network restart">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2017-10-31T11:04:54.947Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从零开始搭建Nextcloud#失败">
+<meta name="twitter:description" content="安装Nginx和php7环境CentOS 7默认是关闭网络的，首先开启网络。1cd /etc/sysconfig/network-scripts/ 然后找到网卡命名的那个文件，做以下修改。12BOOTPROTO=&quot;DHCP&quot;ONBOOT=yes 然后用:wq保存退出，重启网络。1service network restart">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zerowindse.github.io/2017/10/31/2017-10-31/"/>
+
+
+
+
+
+  <title>从零开始搭建Nextcloud#失败 | Rinkko's Milestone</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rinkko's Milestone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">凜子的導標</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zerowindse.github.io/2017/10/31/2017-10-31/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rinkko | 凜子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rinkko's Milestone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">从零开始搭建Nextcloud#失败</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-10-31T20:06:27+08:00">
+                2017-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/正经文章/" itemprop="url" rel="index">
+                    <span itemprop="name">正经文章</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="安装Nginx和php7环境"><a href="#安装Nginx和php7环境" class="headerlink" title="安装Nginx和php7环境"></a>安装Nginx和php7环境</h1><p>CentOS 7默认是关闭网络的，首先开启网络。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /etc/sysconfig/network-scripts/</div></pre></td></tr></table></figure></p>
+<p>然后找到网卡命名的那个文件，做以下修改。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">BOOTPROTO="DHCP"</div><div class="line">ONBOOT=yes</div></pre></td></tr></table></figure></p>
+<p>然后用:wq保存退出，重启网络。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service network restart</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>还有就是如果你是纯净安装，记得运行如下指令来安装wget和unzip。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install wget unzip</div></pre></td></tr></table></figure></p>
+<p>由于CentOS7中并未包含Nginx的安装源，所以咱们需要通过EPEL的安装源来下载Nginx的安装包，使用以下命令来添加EPEL源。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install epel-release</div></pre></td></tr></table></figure>
+<p>现在就可以从EPEL仓库中安装Nginx了。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install nginx</div></pre></td></tr></table></figure></p>
+<p>但是由于某些不可描述的原因，还需要为 php7-fpm 添加另外一个仓库，这次用的是速度还行的webtatic。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</div></pre></td></tr></table></figure>
+<p>然后来安装一些PHP7-FPM和Nextcloud需要的一些包。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install php70w-fpm php70w-cli php70w-gd php70w-mcrypt php70w-mysql php70w-pear php70w-xml php70w-mbstring php70w-pdo php70w-json php70w-pecl-apcu php70w-pecl-apcu-devel</div></pre></td></tr></table></figure>
+<p>最后查看PHP的版本号，确认PHP已经被正确安装。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php -v</div></pre></td></tr></table></figure>
+<pre><code>说起来由于笔记不是一天写完的，咱忘记装没装过Nginx了，这里就需要一个命令。
+&gt; rpm -qa|grep nginx
+其中-qa是列出所有程序，然后传递给grep来查找nginx，嗯就是这样。
+</code></pre><h1 id="配置PHP"><a href="#配置PHP" class="headerlink" title="配置PHP"></a>配置PHP</h1><p>只是安装了Nginx和PHP-FPM还不够，我们还要让他们协同运行。</p>
+<p>编辑PHP-FPM的配置文件。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">user</span> = nginx</div><div class="line">grout = nginx</div><div class="line"></div><div class="line">listen = <span class="number">127.0.0.1:80</span>  这里可以改成你想要的端口</div><div class="line"></div><div class="line">env[HOSTNAME] = <span class="variable">$HOSTNAME</span></div><div class="line">env[PATH] = /usr/local/bin:/usr/bin:/bin</div><div class="line">env[TMP] = /tmp</div><div class="line">env[TMPDIR] = /tmp</div><div class="line">env[TEMP] = /tmp</div></pre></td></tr></table></figure>
+<p>在哪些位置自己找吧..反正环境变量有点靠后，随便改随便改，记得保存退出。</p>
+<p>然后我们要在 /var/lib/php 目录下面建立一个叫做session的文件夹，并且更改它的所有权限，其实这一步我也不懂为什么，但是不建立好像就要GG。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir -p /var/lib/php/session</div><div class="line">chown nginx:nginx -R /var/lib/php/session/</div></pre></td></tr></table></figure>
+<p>然后启动PHP-FPM和Nginx并且添加开机自启。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">systemctl start php-fpm</div><div class="line">systemctl enable php-fpm</div><div class="line">systemctl start nginx</div><div class="line">systemctl enable nginx</div></pre></td></tr></table></figure></p>
+<p>嗯，基本完成了。</p>
+<p>#安装并且配置MariaDB<br>为什么用MariaDB而不是MongoDB呢~因为我们上课学过啊~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install mariadb mariadb-server</div></pre></td></tr></table></figure></p>
+<p>轻松搞定。</p>
+<p>然后添加开机自启并且启动MariaDB。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl start mariadb</div><div class="line">systemctl enable mariadb</div></pre></td></tr></table></figure></p>
+<p>接着开始初始化MariaDB。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql_secure_installation</div></pre></td></tr></table></figure></p>
+<p>敲一次回车，输入Y，然后输入新密码两次，再疯狂回车就好了。</p>
+<p>但是我们还要给NextCloud创建一个数据库和用户。</p>
+<p>键入以下命令来登陆到MariaDB。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -pPassword</div></pre></td></tr></table></figure></p>
+<p>如果光标提示符变成 <em>MariaDB[{none}]:</em> 即为已经登陆MariaDB。</p>
+<p>键入以下语句来创建数据库和用户。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">create database database_name;</div><div class="line">create user username@localhost identified by &apos;username@&apos;;</div><div class="line">grant all privileges on database_name.* to username@localhost identified by &apos;username@&apos;;</div><div class="line">flush privileges; 刷新数据库</div></pre></td></tr></table></figure>
+<p>好了搞定，记好数据库名字和用户名，一会要用。</p>
+<h1 id="上线NextCloud"><a href="#上线NextCloud" class="headerlink" title="上线NextCloud"></a>上线NextCloud</h1><p>直接下载最新的NextCloud包，直到这篇文章完成的时候最新版本是12.0.3.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://download.nextcloud.com/server/releases/nextcloud-12.0.3.zip</div></pre></td></tr></table></figure></p>
+<p>然后解压Nextcloud，扔到一个你喜欢的位置，这里我用的是Nginx默认位置。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">unzip nextcloud-12.0.3.zip</div><div class="line">mv nextcloud/ /usr/share/nginx/html/</div></pre></td></tr></table></figure></p>
+<p>顺便写个data给Nextcloud然后改权限。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir -p ./nextcloud/data/</div><div class="line">chown nginx:nginx -R nextcloud/</div></pre></td></tr></table></figure></p>
+<p>然后再Nginx目录下新建一个配置文件，并且写入配置就好了。</p>
+<p>嗯，本应该这样，但是，但是，但是！！！</p>
+<p>我折腾了整整一周！！！</p>
+<p>该死的Fastcgi！！！它！！！用不了！！！</p>
+<p>所以我放弃了，我们用LANP一键安装包吧（躺。</p>
+<p>既然这样的话那就没什么好说的了(死鱼眼)。</p>
+<p>就写到这里吧。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/教程/" rel="tag"># 教程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/28/2017-10-28/" rel="next" title="从零开始的HTTP学习">
+                <i class="fa fa-chevron-left"></i> 从零开始的HTTP学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/07/2017-11-07/" rel="prev" title="创建你自己的ACGN-Stock Game">
+                创建你自己的ACGN-Stock Game <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Rinkko | 凜子" />
+            
+              <p class="site-author-name" itemprop="name">Rinkko | 凜子</p>
+              <p class="site-description motion-element" itemprop="description">如果找尋不到方向，再努力也是無關痛癢。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://nat.moe/" title="奈特的魔法科研" target="_blank">奈特的魔法科研</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://shellbin.me/" title="戲儿冰" target="_blank">戲儿冰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Nginx和php7环境"><span class="nav-number">1.</span> <span class="nav-text">安装Nginx和php7环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置PHP"><span class="nav-number">2.</span> <span class="nav-text">配置PHP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上线NextCloud"><span class="nav-number">3.</span> <span class="nav-text">上线NextCloud</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rinkko | 凜子</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
