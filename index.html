@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zerowindse.github.io/2018/03/14/djangoStudy/">
+    <link itemprop="mainEntityOfPage" href="https://zerowindse.github.io/2018/08/01/Chip-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rinkko | 凜子">
@@ -281,7 +281,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/14/djangoStudy/" itemprop="url">Django学习</a></h1>
+                <a class="post-title-link" href="/2018/08/01/Chip-2/" itemprop="url">Chip_2</a></h1>
         
 
         <div class="post-meta">
@@ -293,8 +293,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-03-14T20:14:04+08:00">
-                2018-03-14
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-08-01T02:37:55+08:00">
+                2018-08-01
               </time>
             
 
@@ -316,8 +316,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/正经文章/" itemprop="url" rel="index">
-                    <span itemprop="name">正经文章</span>
+                  <a href="/categories/MemoryChip/" itemprop="url" rel="index">
+                    <span itemprop="name">MemoryChip</span>
                   </a>
                 </span>
 
@@ -354,230 +354,20 @@
 
       
         
-          
-            <h2 id="namespace-using-for-url"><a href="#namespace-using-for-url" class="headerlink" title="namespace using for url"></a>namespace using for url</h2><p>urls.py<br>    app_name = ‘name’</p>
-<p>templates<br>    name:pathname</p>
-<h2 id="Running-tests"><a href="#Running-tests" class="headerlink" title="Running tests"></a>Running tests</h2><p>You need to run with the class name.</p>
-<p>for example<br>    python manage.py test QuestionModelTests<br>not is this<br>    python manage.py test polls</p>
-<p>and you’ll see something like:</p>
-<pre><code>Creating test database for alias &apos;default&apos;...
-System check identified no issues (0 silenced).
-F
-======================================================================
-FAIL: test_was_published_recently_with_future_question (polls.tests.QuestionModelTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-File &quot;/path/to/mysite/polls/tests.py&quot;, line 16, in test_was_published_recently_with_future_question
-    self.assertIs(future_question.was_published_recently(), False)
-AssertionError: True is not False
-
-----------------------------------------------------------------------
-Ran 1 test in 0.001s
-
-FAILED (failures=1)
-Destroying test database for alias &apos;default&apos;...
-
-not this
-
-Creating test database for alias &apos;default&apos;...
-System check identified no issues (0 silenced).
-.
-----------------------------------------------------------------------
-Ran 1 test in 0.001s
-
-OK
-Destroying test database for alias &apos;default&apos;...
-
-E:\Project\WebSite\django\mysite
-λ python manage.py test polls
-Creating test database for alias &apos;default&apos;...
-System check identified no issues (0 silenced).
-.
-----------------------------------------------------------------------
-Ran 1 test in 0.001s
-
-OK
-Destroying test database for alias &apos;default&apos;...
-</code></pre><h2 id="How-to-use-Static-Files"><a href="#How-to-use-Static-Files" class="headerlink" title="How to use Static Files!"></a>How to use Static Files!</h2><h2 id="First-you-need-to-add-some-codes"><a href="#First-you-need-to-add-some-codes" class="headerlink" title="First,you need to add some codes."></a>First,you need to add some codes.</h2><p>setting.py</p>
-<pre><code>STATIC_URL = &apos;/static/&apos;
-STATIC_ROOT = os.path.join(BASE_DIR, &apos;collected_static&apos;)
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, &apos;static&apos;).replace(&apos;\\&apos;, &apos;/&apos;),
-)
-</code></pre><h3 id="How-to-link-Static-Files-in-your-HTML-Files"><a href="#How-to-link-Static-Files-in-your-HTML-Files" class="headerlink" title="How to link Static Files in your HTML Files."></a>How to link Static Files in your HTML Files.</h3><pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;{% static 'css/style.css' %}&quot;&gt;
-&lt;script src=&quot;{% static 'js/jquery.js'%}&quot;&gt;&lt;/script&gt;
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zerowindse.github.io/2018/03/13/hyouya_1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Rinkko | 凜子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Rinkko's Milestone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/13/hyouya_1/" itemprop="url">与你的故事</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-03-13T20:06:11+08:00">
-                2018-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/小说/" itemprop="url" rel="index">
-                    <span itemprop="name">小说</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p><br></p>
-<blockquote>
-<p>xx days xx:xx</p>
-</blockquote>
-<hr>
-<p>“我很幸福，希望你也是”</p>
-<p>少女倒在血泊之中，面带微笑，涣散的瞳孔倒映着血红色的天空——就仿佛被她的血液侵染过一般。</p>
-<p>离她不远处有一位年纪相仿的少年，右手持枪——结束了少女性命的人便是他，寒风刺过，黑发飘动，撩起他遮盖左瞳的刘海，那复原的黑眸中只剩下了冷漠。</p>
-<p>直至少女最后的生命流失殆尽，她早已凝结的目光仍旧直向血空。</p>
-<p>“砰——”</p>
-<p>枪响过后，世界重归寂静。</p>
-<p>少年面带痛苦地倒下，手中的枪也随之滑落，刚刚指向自己心脏的枪口还冒着一丝轻烟。</p>
-<p>早已注定的结局。从这个“Game”开始就已经…</p>
-<p>“令所有人都能够微笑出来的结局是不存在的啊，笨蛋”少年呢喃着，像是自言自语，又像是对谁倾诉着什么似的，他用他最后的力量，向少女的尸体爬去。</p>
-<p>两米…一米……</p>
-<p>爬动而留下的血迹涂抹出的痕迹，彷佛咒文一般，神秘而诱人。</p>
-<p>在生命即将消逝的最后一刻，他终于如愿以偿来到她的身边，合上了她未瞑的双眼，然后用几乎连自己都无法听到的声音，道出了他人生最后的话语。</p>
-<p>“他也很幸福，可我不是”</p>
-<h1 id="始"><a href="#始" class="headerlink" title="始"></a>始</h1><p><br></p>
-<blockquote>
-<p>早已定好结局的故事，就算开头再怎么诱人，也只不过是三流小说。</p>
-</blockquote>
-<hr>
-<p>“所以说我讨厌夏天啊”</p>
-<p>在水龙头下面冲洗着自己乱糟糟的头发，凌枫面对炎夏发出了感叹。</p>
-<p>并不只是他，所有参加军训的人恐怕现在都是有着同样的感受吧？对于要在篮球场站一上午军姿的高一新生来说，42°C的高温无疑是要了他们的命。</p>
-<p>而现在刚好是难得的休息时间，几乎所有人都在太阳照射不到的阴影下休憩，也有一部分男生像他一样尽情的用凉水冲洗着自己，以此来缓解炎热所带来的不适。</p>
-<p>“呜!活过来啦!”</p>
-<p>冲洗结束，他不由得发出一声长叹，尽管引来了很多人的注目，但他却并不在意。</p>
-
-          
+          <h1 id="路"><a href="#路" class="headerlink" title="路"></a>路</h1><p>人活着，就要走路。</p>
+<p>那是一条漫长的，看不见前方的的长路，而你被一股莫名的力量推着走在上面。</p>
+<p>沿途再怎么奇妙的场景都与你无缘，你只能做一个过客，匆匆而行。</p>
+<p>会有人的道路和你交叉，在你生命中一闪而过。偶尔也会有人的道路与你平行，一边说着“我懂你啊”之类的成为了朋友。</p>
+<p>你也可能找到人生的伴侣，同她一起前行，看过许多美丽的风景。</p>
+<p>你还会发现有的人没有前路，就那样死去，不留一丝痕迹。</p>
+<p>你背负着”你现在所拥有的一切“，观察着这沿途的风光。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/01/Chip-2/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1826,13 +1616,159 @@ STATICFILES_DIRS = (
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zerowindse.github.io/2017/10/18/2017-10-18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rinkko | 凜子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rinkko's Milestone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/18/2017-10-18/" itemprop="url">记一次失败的Nginx配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-10-18T19:02:46+08:00">
+                2017-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/正经文章/" itemprop="url" rel="index">
+                    <span itemprop="name">正经文章</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><hr>
+<p>大学闲来无事，又不想荒废时光。可是没有监督的话自己总是会怠惰，便想要搭建个部落格来记录下自己做了什么。</p>
+<p>择日不如撞日，想到这里，我立马连上了我的Esxi服务器，开干!</p>
+<p>emmm..CentOS的安装轻车熟路，就不怎么说了，不过为了保险和方便，我顺手装了GHome桌面环境，并且记下了网卡的名字 <strong>ens192</strong>。</p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/18/2017-10-18/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
 
 
           </div>
@@ -1880,7 +1816,7 @@ STATICFILES_DIRS = (
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -1891,7 +1827,7 @@ STATICFILES_DIRS = (
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -1902,7 +1838,7 @@ STATICFILES_DIRS = (
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
